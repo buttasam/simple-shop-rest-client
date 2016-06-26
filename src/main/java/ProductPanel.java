@@ -5,6 +5,7 @@ import javafx.scene.layout.StackPane;
 import rest.entity.RestProduct;
 import rest.logic.Proxy;
 
+import java.io.IOException;
 import java.util.List;
 
 public class ProductPanel extends StackPane {
@@ -25,7 +26,7 @@ public class ProductPanel extends StackPane {
         }
     }
 
-    public void refresh() throws Exception {
+    public void refresh() throws IOException {
         List<RestProduct> os = proxy.allRestProducts();
         restProducts.clear();
         restProducts.addAll(os);

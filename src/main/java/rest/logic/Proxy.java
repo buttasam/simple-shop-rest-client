@@ -1,6 +1,7 @@
 package rest.logic;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import rest.entity.RestProduct;
 
@@ -38,4 +39,12 @@ public class Proxy {
         return list;
     }
 
+
+    public void saveRestProduct(String name) {
+        final String uri = "http://localhost:8080/rest/product";
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new StringHttpMessageConverter());
+        restTemplate.postForObject(uri, name, String.class);
+    }
 }

@@ -16,6 +16,12 @@ public class RestProduct {
     public RestProduct() {
     }
 
+
+    public RestProduct(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
+
     public RestProduct(String name, Double price, List<String> categories) {
         this.name = name;
         this.price = price;
